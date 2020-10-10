@@ -1,0 +1,40 @@
+* {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+/*looks at all h1 elements*/
+h1 {
+    color: cornflowerblue;
+}
+
+/*looks at all h1 elements with the class story*/
+.story h1 {
+    color: crimson;
+}
+
+
+/*selects the ul below the element with class "my-list"*/
+.my-list + ul {
+    list-style: none;
+}
+
+/*only selects all li elements that have a parent with class "nav-links"*/
+.nav-links > li { /*can also be written as ".nav-links li"*/
+    color: fuchsia;
+}
+
+/*drills further down to all li elements inside the nav-links parents that contain an a tag*/
+.nav-links li a {
+    color: aqua;
+}
+
+/*selects the 3rd li child of the parent element with the class .links*/
+.links li:nth-child(3) {
+    color: rgb(218, 110, 110);
+}
+
+/*selects the 2nd element with the class .links (wont apply because the selector above has higher specificity)*/
+.links:nth-child(2) {
+    color: green;
+}

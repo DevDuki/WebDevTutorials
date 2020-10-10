@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+nav {
+  height: 8vh;
+  background: #5b78c7;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;  /* removes the classic link style */
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto; /* makes so that the link are shown to the right side of the screen */
+}
+
+.nav-links li a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.landing {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing h1 {
+    margin: 100px;
+    font-size: 50px;
+    color: #ae5fce;
+}
+
+/* Applies when screen's width is smaller than 768px */
+@media screen and (max-width: 768px){
+
+    /* Hamburger sign */
+    .line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        margin: 5px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    .hamburger {
+        position: absolute; /* lets us position this element the way we like (in this example top right corner) */
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5% , -50%);
+        z-index: 2;
+    }
+
+    .nav-links {
+        position: fixed;
+        background: #5b78c7;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(100px at 90% -10%);
+        -webkit-clip-path: circle(100px at 90% -10%); /*-webkit- prefix is for chrome non standardized rules https://stackoverflow.com/questions/18083056/what-are-moz-and-webkit */
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1500px at 90% -10%);
+        -webkit-clip-path: circle(1500px at 90% -10%); 
+        pointer-events: all;
+    }
+
+    .landing {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .nav-links li a {
+        font-size: 25px;
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s; /* https://www.w3schools.com/css/css3_transitions.asp for more info about transitions */
+    }
+
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s; 
+    }
+
+    li.fade {
+        opacity: 1;
+    }
+}

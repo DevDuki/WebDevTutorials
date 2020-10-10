@@ -12,7 +12,7 @@ const game = () => {
         const playBtn = document.querySelector(".intro button");
         const introScreen = document.querySelector(".intro");
         const match = document.querySelector(".match");
-
+        
         //Eventlistener that reacts at a click on the play button
         playBtn.addEventListener('click', () => {
             introScreen.classList.add("fadeOut");

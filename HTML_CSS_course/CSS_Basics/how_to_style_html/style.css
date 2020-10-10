@@ -1,0 +1,18 @@
+h2 {
+    color: rgb(39, 167, 206);
+}
+
+/*elements*/
+h3 {
+    color: violet;
+}
+
+/*classes*/
+.first-title {
+    color: tomato;
+}
+
+/*id*/
+#youtube-link {
+    color: teal;
+}

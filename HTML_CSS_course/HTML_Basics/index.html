@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Basics - Title shown in the Tab</title>
+    <meta name="description" content="This will be seen if you google this page, shown as description of what kind of page this is (keywords should be added for SEO-optimisation)">
+    <meta charset="utf-8">
+    <meta name="robots" content="index,follow"> <!--Helps Crawlers to find ur page faster and probably be googled faster that way too-->
+    <link rel="icon" href="img/happy_icon-icons.com_67810.ico"> <!--Changes the icon in the browser tab-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--scales the width of the page to the device-->
+</head>
+<body>
+    <!---------
+    Basic HTML5
+    ---------->
+    <h1>A Heading</h1>
+
+    <p>Hello, I'm a Paragraph</p>
+
+    <h2>Images</h2>
+    <img width="50" height="100" src="img/pexels-alex-azabache-3264736.jpg" alt="cliff landscape">
+
+    <h2>Videos</h2>
+    <video controls width="200" height="100" src="videos/Pexels Videos 2629.mp4"></video>
+    <!-- Can also use different sources in one video tag, in case a format is not supported. It will pick the format that works
+    <video controls autoplay width="500">
+        <source src="/some_video.mp4" type="video/mp4">
+        <source src="/some_video_otherformat.mp3" type="video/mp3">
+    </video>
+    -->
+
+    <h2>Links</h2>
+    <p>There is a link somehwere <a target="_blank" href="https://developedbyed.com/courses/713831/lectures/12832397"><img src="img/iconmonstr-youtube-6.svg" alt="play button"></a> that opens in a new tab</p>
+    <p>This is a link that brings me to the <a href="contact.html">contact</a> page</p>
+
+    <h2>Forms</h2>
+    <form action="contact.html">
+        <label for="user">Username</label>
+        <input required placeholder="Username: min length 5" autocomplete="off" minlength="5" maxlength="10" type="text" name="user" id="user"> <!--only inputs with the name attribute will get submitted in the end (check url after submitting)-->
+        <br>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email">
+        <br>
+        <label for="products-droplist">Products</label>
+        <select required name="product" id="products-droplist">
+            <option value="nothing"></option>
+            <option value="laptop lenovo">Laptop</option>
+            <option value="phone samsung">Phone</option>
+        </select>
+        <br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <br>
+        <label for="product1">Lenovo Laptop</label>
+        <input type="radio" name="product" id="product1" value="lenovo">
+        <label for="product2">iphone 10</label>
+        <input type="radio" name="product" id="product2" value="iphone 10">
+        <br>
+        <button type="submit">Submit</button> 
+    </form>
+
+    <h2>Lists</h2>
+    <ul>
+        <li>Home</li>
+        <li>Contact</li>
+    </ul>
+    <ol>
+        <li>Home</li>
+        <li><a href="contact.html">Contact</a></li>
+        <li>Book</li>
+        <ol>
+            <li>Chapter 1</li>
+            <li>Chapter 2</li>
+        </ol>
+    </ol>
+
+    <!--Not used that much anymore apparently-->
+    <h2>Tables</h2>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Duki</td>
+            <td>King</td>
+            <td>99</td>
+        </tr>
+        <tr>
+            <td>James</td>
+            <td>Brow</td>
+            <td>56</td>
+        </tr>
+        <tr>
+            <td>Michael</td>
+            <td>Jackson</td>
+            <td>21</td>
+        </tr>
+    </table>
+
+    <h2>Classes and IDs</h2>
+    <h3 id="first-title">Article Title</h3>
+    <p class="article-text another-class">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Atque, minima ad praesentium sed porro, laudantium sapiente enim consequatur 
+        minus explicabo soluta eveniet quas debitis velit nesciunt tempore dicta perferendis quasi.
+    </p>
+    <h3>Article Title</h3>
+    <p class="article-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Atque, minima ad praesentium sed porro, laudantium sapiente enim consequatur 
+        minus explicabo soluta eveniet quas debitis velit nesciunt tempore dicta perferendis quasi.
+    </p>
+    <h3>Article Title</h3>
+    <p class="article-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Atque, minima ad praesentium sed porro, laudantium sapiente enim consequatur 
+        minus explicabo soluta eveniet quas debitis velit nesciunt tempore dicta perferendis quasi.
+    </p>
+
+    <h2>Semantics</h2> <!--in this example the main, header, footer, nav, section, article tags-->
+    <header>
+        <h3>Logo</h3>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>Projects</li>
+                <li>Sign Up</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main> <!--main is used only once in a page, unlike other tags like header which can be used multiple times-->
+        <section>
+            <h3>Here is my new gallery</h3>
+            <!--figure is used for content like illustrations, diagrams, photos, code listings, etc.-->
+            <figure>
+                <img src="" alt="mountain">
+                <!--figcaption defines the picture inside the figure tag (only one figcaption tag per figure tag)-->
+                <figcaption>Nature Picture</figcaption>
+            </figure>
+        </section>
+
+        <article>
+            <h3>My little Book</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Ducimus cum placeat quod. Esse, expedita magnam ad, veniam 
+                animi quibusdam deleniti natus libero corrupti dicta provident 
+                nulla eveniet autem, nemo ullam?</p>
+        </article>
+
+        <!--can be used for some side information (like chapters of the current page or similar)-->
+        <aside>
+            <ul>
+                <li>1st section</li>
+                <li>2nd section</li>
+                <li>3rd section</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer> <!--can be used only once per page just like main-->
+        <p>Created 2020 / copyright</p>
+        <ul>
+            <li><a href="">Twitter</a></li>
+            <li><a href="">Facebook</a></li>
+        </ul>
+    </footer>
+
+    <h2>HTML Entities</h2> <!--In case u wanna use characters like "<" which in HTML it wont recognise as a text node-->
+    &lt; <!--this will be shown as a "<", most entities start with &-->
+    &copy;
+</body>
+</html>
