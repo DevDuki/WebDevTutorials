@@ -1,0 +1,13 @@
+button {
+    padding: 50px 20px; /*50px Top and Bottom, 20px Left and Right*/
+    padding: 50px 10px 5px 30px; /*clockwise assignment starting at 12 o'clock*/
+    
+    /*Also works for individual properties*/
+    padding-top: 30px;
+    padding-right: 20px;
+}
+
+h1 {
+    margin: 50px;
+    background-color: green;
+}

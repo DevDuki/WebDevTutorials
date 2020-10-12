@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: lightslategray;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+
+@media screen and (max-width: 1024px) {
+    body{
+        background: rgb(84, 97, 109);
+        ;
+    }
+    .tablet {
+        font-size: 3.6rem;
+    }
+}
+
+/*can be done without "screen and" since that is set as default*/
+@media (max-width: 600px) {
+    body{
+        background: rgb(53, 60, 66);
+        ;
+    }
+
+    .mobile {
+        font-size: 2.4rem;
+    }
+}
+

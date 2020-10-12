@@ -1,0 +1,59 @@
+.text-section {
+    font-size: 1.5em;  /*default font-size: 16px;*/
+    /* 16*1.5=24px */
+}
+
+.text-section div {
+    font-size: 1.5em; /* font size of this one will be 36px, because of the previous font-size:1.5em on the section above*/
+    /* 16*1.5*1.5=36px */
+    margin-top: 2em;
+    /* 16*1.5*1.5*2=72px */
+
+    /* BUT IF U DO THIS
+    font-size: 20px; font size will now be back to 20px AND breaks the inheritence of em
+    margin-top: 2em; Will now take the 20px as reference so 2*20 = 40px
+    */
+
+    /*example of rem
+    font-size: 1.5rem; is now only 24px because it takes the value of root elemtn (the html element)
+    16px*1.5=24px
+    */
+}
+
+
+/*
+
+## px: (not that great to use)
+texts with that size are fixed and cannot be changed by other settings
+like changing the font size in the browser setting or for ppl who
+need to enlarge their screen for better visbility.
+Thats why its not a great idea to use px (also for mobile responsiveness)
+
+## em: (also not too great to use)
+default values of all font sizes is 1em, which equals 16px.
+em looks at the size of the parent element and multiplies it with 
+the em value (i.e. parent element div has value of 1.5em = 24px
+and then its child element h1 has again 1.5em = 36px).
+
+## rem: (recommended to use)
+difference to em, it only inherits from the root element (HTML tag)
+This allows us to set main rules for the whole page in the html element
+and then only specifically change those main values with rem, without
+worrying about inheritance issues.
+
+WORTH TO NOTE FOR REM!!
+if u use
+html {
+    font-size: 62.5%; make the default font size 10px
+}
+
+u then can use rem in other elements to define pixel like so,
+1.6rem = 16px
+2.4rem = 24px
+
+so for example 
+p {
+    font-size: 1.8rem; equals now to 18px!
+}
+
+*/

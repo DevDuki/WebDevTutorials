@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CSS How to style HTML</title>
+    <title>CSS font-size - Pixels em rem</title>
     <meta name="description" content="This will be seen if you google this page, shown as description of what kind of page this is (keywords should be added for SEO-optimisation)">
     <meta charset="utf-8">
     <meta name="robots" content="index,follow"> <!--Helps Crawlers to find ur page faster and probably be googled faster that way too-->
@@ -10,21 +10,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--Styling directly inside HTML (not recommended to do)-->
-    <h1 style="color: crimson;">Getting started with CSS</h1>
-
-    <p>I got styled through a style tag inside the HTML file</p>
-
-    <h2>From now elements will be styled by a seperate CSS stylesheet</h2>
-    <h3 class="first-title">Mom is cooking the good stuff</h3>
-    <h3>Spaghetti</h3>
-    <a id="youtube-link" href=#>Empty link</a>
+    <section class="text-section">
+        <p>
+            Lorem ipsum <span>dolor</span> sit, amet consectetur adipisicing elit. 
+            Inventore ratione, quo alias temporibus facilis harum exercitationem 
+            voluptatem quisquam fugiat? Possimus earum nostrum laborum temporibus 
+            omnis delectus neque quae itaque. Dignissimos.
+        </p>
+        <div>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+    </section>
 </body>
 </html>
-
-<!--Style with a seperated style tag inside the HTML file-->
-<style>
-    p {
-        color: rgb(86, 216, 86);
-    }
-</style>

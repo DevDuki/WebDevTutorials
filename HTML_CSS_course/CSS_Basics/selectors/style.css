@@ -14,12 +14,12 @@ h1 {
 }
 
 
-/*selects the ul below the element with class "my-list"*/
+/*only selects the ul RIGHT BELOW the element with class "my-list"*/
 .my-list + ul {
     list-style: none;
 }
 
-/*only selects all li elements that have a parent with class "nav-links"*/
+/* selects all li elements that have a parent with class "nav-links"*/
 .nav-links > li { /*can also be written as ".nav-links li"*/
     color: fuchsia;
 }

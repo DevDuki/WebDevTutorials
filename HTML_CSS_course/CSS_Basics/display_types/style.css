@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h1 {
+    height: 5rem;
+    background: cadetblue;
+}
+
+a {
+    background: chartreuse;
+    text-align: center;
+    height: 10rem; /*inline elements cant change their height and width so...*/
+    width: 10rem;  /*...these 2 lines wont have any effects to the a element*/
+    margin: 3rem;  /*margin/padding on inline elements will only be added to their left and right*/
+    padding-top: 5rem;
+    display: block; /*this will transform the inline element to a block element and it will have the same behavious like block elements*/
+    /*so now heights and widths work as well*/
+
+    /*with this it will respect the padding, margin, height and width, but still be inline
+    display: inline-block;
+    */
+}

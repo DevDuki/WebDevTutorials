@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html, body {
+    height: 150%;
+}
+
+
+/* NOTE:
+Usually u dont use these for navs or sections
+*/
+
+/*parent element set to relative will change behaviour of its child elements*/
+.container {
+    position: relative; /*this will make all child elements position themselves relative to this elements size*/
+    width: 80%;
+    height: 80%;
+    background: brown;
+    margin: auto; /*auto here positions the elemnt in the middle (left and right)*/
+}
+
+.box1, .box2, .box3, .box4 {
+    width: 20%;
+    height: 20%;
+    background: cadetblue;
+}
+
+
+/*position relative*/
+.box2 {
+    background: chocolate;
+    transform: translateX(100%); /*this will move the box by 100% of its width to the right (use -100% for left)*/
+    position: relative; /*if a position relative has been set, then all changes regarding of its position will happen relative to its origin position*/
+    left: 1rem; /*so now that position is set to relative, the box moves 1rem to the right but from 1box's width position, due to the previous transform: translateX()*/
+}
+
+
+/*position fixed*/
+.box3 {
+    background: rgb(57, 35, 182);
+    position: fixed; /*this will make the box be fixed at the current position even if u scroll and its size no more relative to its parent element (so 20% of the whole screen not just the parent box)*/
+    /*can also be placed wherever u like now (be wary positions are still relative to the parent)*/
+    top: 15%;
+    left: 0%;
+    width: 40%;
+}
+
+
+/*position sticky*/
+.box4 {
+    position: sticky; /*this will make the box sticky when it hits the top: 5rem; position. but until then it will be scrollable*/
+    background: darkmagenta;
+    top: 5rem;
+    /*would also work for scrolling on the x-axis by setting a value to for example left:5rem;*/
+    left: 5rem;
+}
+
+
+/*positions absolute*/
+.box1 {
+    /* defualt value of position is
+    position: static;
+    */
+    position: absolute; /*element will be taken out of the normal flow and everything else will respace as if this element doesnt exist*/
+    
+    /*so this can be positioned as we like*/
+
+    /*in order to position this box in the center of the screen (since the parent element has position: relative it will position in the middle of the parent's box)*/
+    /*we add space from the top and left side of the box (till its edge so its not gonna be in the middle until we use the transform: translate())*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*and with this we move the box by half of its size diagonaly of its x,y position to up left*/
+
+}

@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*With this it resizes the element to stay in between the screen border and prevents from overgrowing*/
+    /*default is box-sizing: content-box;*/
+}  
+    
+/*With this we have an ugly scroll bar at the bottom*/
+div{
+    background: khaki;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    border: 20px solid black; /*thx to border-box the borders are also being held inside the border of the browser*/
+}

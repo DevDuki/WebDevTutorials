@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+button {
+    padding: 2rem 4rem;
+    cursor: pointer;
+}
+
+/*pseudo class hover*/
+button:hover{
+    background: darkorange;    
+    padding: 2rem 7rem;
+}
+
+
+/*pseudo class focus*/
+button:focus{
+    background: rgb(32, 91, 146);  
+}
+
+input:focus{
+    background: rgb(32, 91, 146);  
+}
+
+
+/*pseudo class :nth-child()*/
+button:nth-child(2){
+    padding: 4rem 6rem;
+}
+
+/*pseudo elements before and after*/
+h1 {
+    font-size: 4rem;
+}
+
+h1::before{
+    content: "me";
+}
+
+h1::after{
+    content: "me";
+}
+
