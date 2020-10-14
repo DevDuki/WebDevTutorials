@@ -1,0 +1,11 @@
+body{
+    background: rgb(53, 60, 66);
+}
+
+.tablet{
+    font-size: 4.8rem;
+}
+
+.mobile {
+    font-size: 9rem;
+}

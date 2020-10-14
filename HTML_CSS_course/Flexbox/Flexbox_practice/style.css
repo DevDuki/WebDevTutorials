@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+/*solemly selecting the nav for display flex wouldnt have worked,
+because the ul is the only child in it, so nothing would have changed.
+But the ul has the li's as childs, which is why ul is the perfect place
+for us to play the display: flex;*/
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /*changing the height of elements with thei height attribute is 
+    also possible but a better way to do it is with its padding.
+    also when u collaps the website, weird things can happen when using height*/
+    padding: 1rem;
+    /*what you can do isntead with the height is using the min-height propperty
+    so for example u can keep 10vh on ur nav, like this*/
+    min-height: 10vh;
+    
+    list-style: none;
+    background: lightblue;
+}
+
+.hero {
+    min-height: 90vh;
+    background-image: url('img/pexels-vlada-karpovich-4050315.jpg');
+    color: white;
+    
+    /*this makes the picture cover nicely the background and resposnive*/
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h2 {
+    text-align: center;
+    margin: 2rem;
+}
+
+.hero button{
+    padding: 1rem 2rem;
+    background: rgb(164, 250, 221);
+}
+
+
+/*challenge of the following section is, to set the picture and text
+into a horizontal direction, but the text itself to a vertical direction*/
+
+.intro{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.intro img{
+    width: 100%;
+}
+
+.intro-img{
+    flex: 1 1 30rem;
+}
+
+.intro-text{
+    flex: 1 1 30rem;
+    background: lightgreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-text h2 {
+    padding: 2rem;
+}
+
+.intro-text p{
+    padding: 1rem;
+}
+

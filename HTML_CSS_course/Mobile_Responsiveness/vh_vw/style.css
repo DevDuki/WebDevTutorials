@@ -1,0 +1,57 @@
+html {
+    font-size: 62.5%;
+}
+
+html, body{
+    /*height: 100%; instead of this and....*/
+}
+
+div {
+
+    /*______vh______
+    /*height: 100%; ...and this...*/  /*this height is relative to the parents height*/
+    
+    /*...this, we can use vh to cover up whole screen instead of 100% on html,body AND 100% in here as well*/
+    /*height: 80vh;*/ /*adapts to the viewers height (responsive)*/
+
+    /*in case a child element overflows the height (shows up outside of this div hieght)
+    you can use min-height here and it will adapt to engulf the child's element in case its
+    position is larger than the height of this element*/
+    min-height: 40vh;
+
+
+    /*______vw______*/
+    width: 50%; /*all its child elements will have this width of 50% too*/
+    
+    /*Thanks to calc, the font sizes will dynamically adjust to the screen's size no need for media anymore*/
+    font-size: calc(2.4rem + 0.5vw); /*can be combined with media, so that for exmapl until 600px it will scale but above
+    it will be a fixed value for desktops at for example 3.6rem or something.*/
+
+
+    
+    background: rgb(71, 74, 243);
+}
+
+div h2{
+    height: 50vh; /*this does not inherit the height from its parent element "div" but
+    it will affect its parents min-height, if this height is overflowing its parent's height*/
+
+    /*width: 50%;  this will again inherit the width of its parent element "div" which has aswell a width of 50%*/
+    width: 80vw; /*wherease this completely ignored the 50% width of its parent element "div"*/
+
+    background: burlywood;
+}
+
+/*
+@media (max-width: 700px) {
+    body {
+        background: darkcyan;
+    }
+
+    html{
+        font-size: 50%; thanks to rem, this will apply to all element's font sizes
+    }
+
+
+}
+*/

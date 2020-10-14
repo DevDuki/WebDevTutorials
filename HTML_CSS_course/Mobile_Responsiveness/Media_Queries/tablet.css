@@ -1,0 +1,11 @@
+body{
+    background: rgb(84, 97, 109);
+}
+
+.desktop{
+    font-size: 4.8rem;
+}
+
+.tablet {
+    font-size: 8rem;
+}

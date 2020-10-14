@@ -1,0 +1,137 @@
+/*
+STRONGLY RECOMMEND TO REWATCH VIDEO FLEXBOX BASICS
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    border: 3px solid black;
+
+    /*first we gotta set the propperty on the container
+    MIND: that this will only apply to the child element.
+    So content which r nested inside this child's element
+    will no more be displayed in flex mode*/
+    display: flex; 
+    
+    /*flex-direction: (default is row)*/
+    flex-direction: row;
+    /*possiblke values for flex-direction: 
+    row, makes the items display in row ordered by their HTML child order
+    row-reverse, makes the items display in the same row but in reversed order
+    column, makes the items display in a column (same as the default of "display: inline-block")
+    column-reverse, makes the items display also in a column but reversed*/
+
+    /*flex-wrap: (default is nowrap)*/
+    flex-wrap: wrap;
+    /*possible values for flex-wrap: 
+    nowrap, if the space for the elements on the website gets too small, the elements get squished together
+    wrap, (good for responsive web design) the elements widht and height remain, so if they dont fit on the webpage anymore, they take a new line
+    wrap-reverse, same as above but (weirdly) opposite order
+    */
+
+
+    /*CAUTION: 
+    for justify-content: and align-items:
+    the behaviour of them switches if the defualt value of flex-direction: has
+    been changed to column!!
+    */
+
+    /*justify-content: (default is flex-start)*/
+    justify-content: flex-start;
+    /*possible values for justify-content:
+    flex-start, moves the content at the start (depending on flex-direction)
+    flex-end, move the content to the end (depending on flex-direction)
+    center, places the content to the center (center of the y axis if flex-direction: row;)
+    space-around, leaves a space left and right (or bottom and top side if different flex-direction) side of every single element by the same amount so that the leftover space of the y axis is spread apart (leads to double spaces between each element and single spaces at the first and last element
+    space-evenly, fixes the problem with spaces of sapce-around. Now all elements have the exact same space left and right
+    space-between, gives only spaces between the elements, evenly spread
+    */
+
+    /*align-items: (default is flex-start)*/
+    align-items: flex-start;
+    /*possible values for align-items:
+    flext-start, moves the content to the very top (or left if flex-direction: column)
+    flex-end, moves the content to the very bottom (in our case at the bottom edge of the height: 50vh;) (or very right if flex-direction: column)
+    center, move the content to the center (center of the x axis if flex-direction: row;)
+    stretch, if the child elements have no set height, the elements get stretched to this parent's height
+    baseline, makes that every child element is aligned into a straight line (somehow)
+    */
+
+    /*align-content: (default is TBD)*/
+    align-content: flex-start;
+    /*NOTE: if the content gets wrapped to a new line, their positioning can be adjusted with this propperty*/
+    /*possible values for align-content: 
+    flex-start, sets all the content to the beginning
+    flex-end, sets all the content to the end
+    center, sets all the content to the center
+    space-around, adds space around the content but again with the issue the the middle spaces get added twice
+    space-evenly, fixes the above issue
+    space-between, only adds space between the content
+    stretch, over the entire height (again here 50vh)
+    */
+
+    height: 50vh;
+}
+
+.box {
+    height: 15rem;
+    width: 15rem;
+    flex-basis: 15rem; /*very good for responsive layouts, it gives the content a base width in which they resize if screen gets smaller or bigger (check tutorial video at 21:00)*/
+    /*now you can add flex-grow here to evenly grow every single content*/
+
+    /*flex: (flex-grow) (flex-shrink) (flex-basis)
+    With flex u can assign all 3 values at once!!*/
+    flex: 1 1 20rem;
+}
+
+.box1 {
+    background: rgb(8, 224, 224);
+    
+    order: 1; /*if the parent elements has the display: flex, you can order ur sections and switch em around later on, without changing the HTML*/
+    
+    /*flex-grow: (default is 0), changes the width of the element (if flex-direction: row, else the height)*/
+    flex-grow: 1; /*if set to 1, it will take all the leftover space and grow accordingly (works responively)*/
+}
+.box2 {
+    background: rgb(10, 233, 96);
+
+    order: 5; /*here an example if u wanna switch the order of 2, to 5*/
+
+    flex-grow: 1; /*now that box1 and box2 have the value of 1, they both share the leftover space*/
+}
+.box3 {
+    background: rgb(253, 220, 31);
+    
+    order: 3;
+
+    flex-grow: 2; /*now this box grows up to 2times larger than the other boxes with the value 1*/
+}
+.box4 {
+    background: rgb(25, 92, 236);
+
+    order: 2; /*swtiched the order from 4 to 2*/
+}
+.box5 {
+    background: rgb(243, 26, 243);
+
+    order: 5;
+
+    /*flex-shrink: (default is 1), changes the shrink behaviour*/
+    flex-shrink: 1; /*now never shrinks lower than its wdith: 15rem;*/
+}
+.box6 {
+    background: rgb(248, 32, 32);
+
+    order: 6;
+
+    /*align-self: allows to specifically move the elements*/
+    align-self: flex-end; /*not working now due to too many other flex setttings (check video Flexbox Basics)*/
+}
