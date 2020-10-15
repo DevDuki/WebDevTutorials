@@ -1,0 +1,423 @@
+/* Global Styles */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-size: 2.6rem;
+}
+
+li, button, label, input, p{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 4.8rem;
+}
+
+h3{
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+h4, h5{
+    font-size: 2.8rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+button{
+    padding: 2rem 6rem;
+    background: #4c6c97;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    /*animate the color change of this button, when hovering 
+    over it with the mouse*/
+    transition: background 0.5s ease-in-out;
+              /*this first parameter says, which propperty it should transition
+                for example "all" would make it so that this will transition all changes*/
+}
+
+button:hover{
+    background: #1f2c3d;
+    
+}
+
+
+/* Nav Section with Hero */
+
+.main-head{
+    background: #131c27;
+    color: white;
+
+    
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+}
+
+nav{
+    min-height: 10vh;
+    padding: 2rem;
+
+    /*makes that the content only takes 90% of the whole widht
+    and with margin: auto; it will have the same space around it
+    aka its getting centered (good to use that throught the entire
+    page so taht everything stays aligned with the same spacing*/
+    width: 90%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo{
+    flex: 2 1 40rem;
+    font-family: 'Pattaya', sans-serif;
+    font-weight: normal;
+}
+
+.hero{
+    min-height: 90vh;
+
+    /*__Background__*/
+    /*linear gradient adds a gradient color over the image*/
+    background: linear-gradient(rgba(0, 0, 0, 0.6), transparent), url('./img/landing-page.jpg');
+    /*this makes the image not repeat itself, when the size of the 
+    screen is bigger than the picture itself*/
+    background-repeat: no-repeat;
+    /*makes so the picture covers the whole area and resizes 
+    itself when needed*/
+    background-size: cover;
+    background-position: center;
+
+    /*__Content Positioning__*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /*__Text styling__*/
+    color: white;
+    text-align: center;
+}
+
+.hero h3{
+    padding: 5rem;
+}
+
+
+
+/* Locations Section */
+
+#locations{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), transparent), url('./img/new-york-page.png');
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    /*we added this so that the clouds (which are positioned absolute)
+    will position themselves relative to their parent's element, 
+    which is this #locations section*/
+    position: relative;
+
+    /*here we use this, because the animated clouds would go outside
+    this section and transition over to the section above. But with 
+    overflow: hidden; we can avoid that*/
+    overflow: hidden;
+}
+
+.locations-head{
+    width: 90%;
+    margin: auto;
+}
+
+.locations-head h2{
+    padding: 1rem 0rem;
+    text-decoration: underline;
+
+    /*these things might wont work on all browsers*/
+    text-decoration-thickness: 0.5rem;
+    /*or if u wanna add a background color to the text*/
+    background: linear-gradient(#3469af, #e95241); /*this will add the color over the whole content's box, so we gotta cut it */
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; /*and this is what not all browsers support yet*/
+}
+
+.locations-head h3{
+    padding: 4rem 0rem;
+}
+
+.cloud{
+    /*now here since the clouds r jsut an additional styling to 
+    the website, we wanna position them absolute, so they get 
+    out of the flow of everything else on the website*/
+    position: absolute;
+    top: 0%;
+    right: 0%;
+
+    height: 60rem;
+
+    pointer-events: none; /*so that we cant drag the clouds anymore and select the text below instead*/
+}
+
+.moving-cloud-1{
+    /*here we can add the animation taht we created below
+    with @keyframes*/
+    animation: cloudAnimation 3s infinite alternate ease-in-out;
+}
+
+.moving-cloud-2{
+    top: 15%;
+    z-index: -1; /*mind that the cloud got darker due to the gradient backgroudn color of this section*/
+    opacity: 0.5;
+    animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+}
+
+/*an other way to add animations (for example for the clouds)*/
+@keyframes cloudAnimation{
+    /*u can use this:*/
+    from{
+        transform: translate(10%, -10%);
+    }
+
+    to{
+        transform: translate(0%, 0%);
+    }
+    /*if u only need one simple animation*/
+
+    /*or this if u need multiple animations at different steps
+    0%{
+        background: lightblue;
+    }
+    25%{
+        background: lightcoral;
+    }
+    100%{
+        background: lightgreen;
+    }
+    */
+}
+
+
+
+/* Benefits Section */
+
+.benefits-head{
+    background: #343c44;
+    padding: 3rem;
+    min-height: 40vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    color: white;
+}
+
+.benefits-head h3{
+    padding: 1rem;
+}
+
+.cards{
+    width: 90%;
+    margin: auto;
+
+    display: flex;
+    min-height: 60vh;
+
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    flex: 1 1 25rem;
+    min-height: 40vh;
+    margin: 2rem 5rem;
+
+    text-align: center;
+
+  /*box-shadow: x   y    blur clr   */ /* check drop shadow on figma */
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);  /*yes u can put a shadow over a shadow*/
+}
+
+.cards img{ 
+    max-width: 15%;
+    margin: 2rem;
+} 
+
+.card h4, .card p{
+    padding: 1rem;
+}
+
+.card-icon{
+    background: #27394e;
+}
+
+
+
+/* Cards Section */
+
+#contact{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), transparent), url('./img/contact-mountain.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper{
+    background: rgba(19, 28, 39, 0.8);
+    width: 60%;
+    color: white;
+    border-radius: 20px;
+}
+
+.form-head{
+    text-align: center;
+    padding: 4rem;
+}
+
+.name-form, .email-form{
+    padding: 3rem;
+    text-align: center;
+}
+
+.form-wrapper label{
+    margin: 0rem 3rem;
+}
+
+.form-wrapper button{
+    width: 100%;
+    padding: 2rem;
+    margin-top: 8rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.form-wrapper input{
+    padding: 1rem 3rem;
+}
+
+
+
+/* Footer */
+
+footer{
+    color: white;
+    background: rgba(19, 28, 39, 1);
+}
+
+.footer-wrapper{
+    display: flex;
+    align-items: center;
+
+    padding: 2rem;
+    width: 90%;
+    min-height: 10vh;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+footer ul{
+    list-style: none;
+
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h5{
+    flex: 1 1 40rem;
+}
+
+
+
+/* Media Queries */
+
+@media screen and (max-width: 933px){
+    html{
+        font-size: 45%;
+    }
+
+    nav{
+        text-align: center;
+    }
+
+    #logo{
+       padding: 1rem; 
+    }
+
+    .cloud{
+        height: 40rem;
+    }
+
+    .moving-cloud-1{
+        z-index: -1;
+    }
+
+    .moving-cloud-2{
+        z-index: -2;
+    }
+
+    .locations-head h2{
+        background: linear-gradient(#75b1ff, #e04e3e 40%); 
+        background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+        text-align: center;
+    }
+
+    .locations-head h3{
+        background: rgba(19, 28, 39, 0.8);
+        color: white;
+        text-align: center;
+    }
+
+    .form-wrapper{
+        width: 100%;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    footer h5{
+        padding-bottom: 3rem;
+    }
+}
