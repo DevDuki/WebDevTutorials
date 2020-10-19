@@ -1,0 +1,313 @@
+/* Global Styles */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*in order to store fonts locally, we cna use this*/
+@font-face{
+    font-family: "Ruhl";
+    src: url("./fonts/FrankRuhlLibre-Regular.ttf");
+}
+
+@font-face{
+    font-family: "Ruhl Medium";
+    src: url("./fonts/FrankRuhlLibre-Medium.ttf");
+}
+
+@font-face{
+    font-family: "Vibes";
+    src: url("./fonts/GreatVibes-Regular.ttf");
+}
+
+body{
+    font-family: "Ruhl", sans-serif;
+    animation: opening 1s ease-in-out;
+}
+
+html{
+    font-size: 62.5%;
+
+    /*Variables in CSS (not supported for IE 11)*/
+    /*there are better ways of declaring variables in SASS*/
+    /* --main-color: #fff; an example of a variable*/ 
+    --header1: calc(2rem + 1vw); /* an other variable header1 is being created here */
+    /*with calc() the size of this header variable will change according to the width of
+    the user's view, which makes this a fluid size, according to the size of the website
+    so 2rem is 20px and + 1vw means that for every 1000px our font grows by 10px*/
+    --header2: calc(3.5rem + 1vw);
+    --header3: calc(3rem + 1vw);
+    --header4: calc(2.4rem + 1vw);
+    --text: calc(1.5rem + 1vw);
+    --big-text: calc(2.4rem + 1vw);
+    --special-color: #906272;
+    --main-color: #414141;
+    --gray-text: #525252;
+}
+
+h1{
+    font-size: var(--header1); /*and here you can see how its used */
+}
+
+li, button, label, input, p, a{
+    font-size: var(--text);
+}
+
+h2{
+    font-size: var(--header2);
+}
+
+h3{
+    font-size: var(--header3);
+}
+
+h4, h5{
+    font-size: var(--header4);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-family: "Vibes", sans-serif;
+}
+
+
+
+
+/* Nav Section */
+.main-header
+{
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /*only added this one, so that the box-shadow wont get covered up by the picture*/
+}
+
+nav
+{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    padding: 2rem 0rem;
+}
+
+#logo
+{
+    flex: 1 1 20rem;
+}
+
+.nav-links
+{
+    display: flex;
+    justify-content: space-around;
+    flex: 1 1 20rem;
+}
+
+.hero
+{
+    width: 95%;
+    margin: 0 0 0 auto;
+    min-height: 90vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hero-introduction
+{
+    text-align: center;
+    flex: 2 1 40rem;
+}
+
+.hero-introduction p
+{
+    padding: 5rem 10rem;
+}
+
+.hero-introduction h2
+{
+    padding-top: 3rem;
+}
+
+.hero-introduction a
+{
+    padding: 2rem 8rem;
+    border: 3px solid black;
+    margin-bottom: 4rem;
+}
+
+.hero-images
+{
+    flex: 1 1 40rem;
+    background: linear-gradient(#dad8dd, #dad1d4);
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.hero-elena
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.plant
+{
+    position: absolute;
+    bottom: 0;
+    left: -20%;
+    z-index: -1;
+
+    transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+    animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+               plant-shake 2.5s infinite ease alternate-reverse 2s; /*forwards here makes the animation stand still at its end positions, instead of going back to the original position*/
+    transform-origin: bottom; /*this makes so that the animation happens from the bottom of the picture and not center*/
+}
+
+.plant2
+{
+    left: 40%;
+}
+
+.burger,
+.menu-check
+{
+    display: none;
+}
+
+
+
+/* Animations */
+@keyframes opening
+{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes plant-entrance
+{
+    from{
+        transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
+    }
+    to{
+        transform: translateY(0%) rotateZ(0deg) rotateX(0deg);
+    }
+}
+
+@keyframes plant-shake
+{
+    from{
+        transform: rotateZ(-5deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+
+
+
+/* Media Queries */
+
+/* Creating the burger with spans*/
+@media screen and (max-width: 842px)
+{
+    .burger
+    {
+        position: relative;
+        display: block; /*making it visible here again*/
+    }
+
+    .burger span
+    {
+        padding: 0.2rem 1.5rem;
+        margin: 0.5rem 0rem;
+
+        display: block; /*make them a block element instead of inline*/
+
+        background: var(--gray-text);
+
+        transition: all 0.5s ease;
+    }
+
+    .nav-links
+    {
+        background: var(--main-color);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 1s ease;
+    }
+
+    .nav-links a
+    {
+        color: white;
+        font-size: var(--header3);
+        text-decoration: underline;
+    }
+
+    .menu-check
+    {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translate(5%, -50%);
+        width: 5rem;
+        height: 5rem;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 100;
+    }
+
+    /* here we check if the checkbox gets checked, we will
+    change the style of .nav-links element right below*/
+    .menu-check:checked + .nav-links
+    {
+        transform: translateX(-100%);
+    }
+
+    /* takes every ".burger span" that is followed by a ".menu-check"*/
+    .menu-check:checked ~ .burger span 
+    {
+        background: white;
+    }
+
+    .menu-check:checked ~ .burger span:nth-child(1)
+    {
+        transform: rotateZ(45deg) translateY(300%);
+    }
+
+    .menu-check:checked ~ .burger span:nth-child(3)
+    {
+        transform: rotateZ(-45deg) translateY(-300%);
+    }
+
+    .menu-check:checked ~ .burger span:nth-child(2)
+    {
+        opacity: 0;
+    }
+}
