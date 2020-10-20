@@ -37,6 +37,10 @@ html {
     wrap-reverse, same as above but (weirdly) opposite order
     */
 
+    /*flex-flow: (mix of direction and wrap)
+    flex-flow: wrap row;
+    with this we can assign both propperties of flex-wrap and flex-direction within one single propperty*/
+
 
     /*CAUTION: 
     for justify-content: and align-items:
