@@ -41,10 +41,10 @@ html{
     --header3: calc(3rem + 1vw);
     --header4: calc(2.4rem + 1vw);
     --text: calc(1.5rem + 1vw);
-    --big-text: calc(2.4rem + 1vw);
+    --big-text: calc(6rem + 1vw);
     --special-color: #906272;
-    --main-color: #414141;
-    --gray-text: #525252;
+    --main-color: rgb(65, 65, 65);
+    --gray-text: #525252; 
 }
 
 h1{
@@ -86,7 +86,6 @@ a{
 h1{
     font-family: "Vibes", sans-serif;
 }
-
 
 
 
@@ -137,6 +136,7 @@ nav
 .hero-introduction p
 {
     padding: 5rem 10rem;
+    color: var(--gray-text);
 }
 
 .hero-introduction h2
@@ -178,6 +178,9 @@ nav
     animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
                plant-shake 2.5s infinite ease alternate-reverse 2s; /*forwards here makes the animation stand still at its end positions, instead of going back to the original position*/
     transform-origin: bottom; /*this makes so that the animation happens from the bottom of the picture and not center*/
+
+    /*decreasing the size of the plants*/
+    max-height: 80%;
 }
 
 .plant2
@@ -226,11 +229,212 @@ nav
 
 
 
+/* About Section */
+
+.about
+{
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-text
+{
+    flex: 2 1 40rem;
+    justify-content: space-around;
+    background: var(--main-color);
+    color: white;
+}
+
+.about-text div
+{
+    padding: 3rem 8rem;
+}
+
+.about-text h3
+{
+    padding: 2rem 0rem;
+    font-family: "Ruhl Medium";
+}
+
+.about-text h2
+{
+    padding: 4rem;
+    font-family: "Vibes";
+}
+
+.about-image
+{
+    flex: 1 1 40rem;
+    position: relative;
+}
+
+.about-image h5
+{
+    position: absolute;
+
+    letter-spacing: 2rem;
+
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 20%); /* to make the text be in the middle of the picuter, because left 50% moves the whole text */
+}
+
+.about-image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Gallery Section */
+.gallery
+{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+}
+
+.gallery img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery1
+{
+    grid-column: 1 / 3;
+}
+
+.gallery2
+{
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+.gallery-head
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(65, 65, 65, 0.6);
+    padding: 5rem 10rem;
+    text-align: center;
+    
+}
+
+
+
+/* Contact section */
+
+.contact
+{
+    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-wrapper
+{
+    flex: 3 1 40rem;
+    margin-bottom: 5rem;
+}
+
+.form-wrapper h2
+{
+    margin: 5rem 0rem;
+}
+
+.form-wrapper span
+{
+    font-size: var(--big-text);
+    color: var(--special-color);
+}
+
+.form-wrapper label
+{
+    display: block;
+}
+
+.form-wrapper input
+{
+    display: block;
+    margin: 3rem 0rem;
+    background: var(--main-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+}
+
+.form-wrapper button
+{
+    padding: 1rem 8rem;
+    background: var(--special-color);
+    color: white;
+    border: none;
+    width: 100%;
+
+}
+
+.contact img
+{
+    flex: 1 1 20rem;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* Footer section */
+footer
+{
+    background: var(--main-color);
+    color: white;
+    display: flex;
+    padding: 3rem 5%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer ul
+{
+    display: flex;
+    flex: 1 1 30rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer h4
+{
+    font-size: calc(1.4rem + 1vw);
+    flex: 3 1 40rem;
+}
+
+
+
+
+
 /* Media Queries */
 
 /* Creating the burger with spans*/
 @media screen and (max-width: 842px)
 {
+    .hero
+    {
+        width: 100%;
+    }
+
+    .hero-introduction p
+    {
+        padding: 5rem 3rem;
+    }
+
+    /* Burger */
     .burger
     {
         position: relative;
@@ -309,5 +513,67 @@ nav
     .menu-check:checked ~ .burger span:nth-child(2)
     {
         opacity: 0;
+    }
+
+
+    /* About Section */
+    .about-text div
+    {
+        padding: 3rem 3rem;
+    }
+
+    /* Gallery Section */
+    .gallery img
+    {
+        max-height: 60vh;
+    }
+
+    .gallery
+    {
+        display: block; /*best solution for mobile is to not use grid anymore*/
+    }
+
+    .gallery-head
+    {
+        display: none;
+    }
+
+    .gallery1 
+    {
+        min-height: 40rem;
+    }
+
+    /* Footer Section */
+    footer ul
+    {
+        order: 1;
+    }
+
+    footer h4
+    {
+        order: 2;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 1024px)
+{
+    .contact img{
+        display: none;
+    }
+}
+
+/*making font sizes fix from a specific width*/
+@media screen and (min-width: 1700px)
+{
+    body
+    {
+        --header1: 3rem;
+        --header2: 5rem;
+        --header3: 4rem;
+        --header4: 3rem;
+        --text: 3rem;
+        --big-text: 8rem;
     }
 }
