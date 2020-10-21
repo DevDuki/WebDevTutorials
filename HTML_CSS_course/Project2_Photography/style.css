@@ -45,6 +45,7 @@ html{
     --special-color: #906272;
     --main-color: rgb(65, 65, 65);
     --gray-text: #525252; 
+    scroll-behavior: smooth;
 }
 
 h1{
@@ -86,8 +87,6 @@ a{
 h1{
     font-family: "Vibes", sans-serif;
 }
-
-
 
 /* Nav Section */
 .main-header
