@@ -1,0 +1,47 @@
+/*Now this seperated file can be imported in any other
+scss file, so we can split up different style rules
+for different sections or like global styles into seperate
+files, instead of all in one single style.css file.
+
+Also mind that the convention of naming external files
+start with an _filename.scss (check the name of this file
+*/
+
+
+$big-font: 4rem;
+$primary-color: #ee6565;
+
+/*nesting*/
+.introduction
+{
+    min-height: 100vh;
+    @include flex(column);
+
+    /*this is the same as if we would make a selector
+    of .section h2{} outside of this scope, in normal CSS*/
+    h2
+    {
+        font-size: $big-font;
+    }
+
+    .box
+    {
+        color: coral;
+    }
+
+    button
+    {
+        color: black;
+        background: $primary-color;
+        border: none;
+        padding: 1rem 3rem;
+        cursor: pointer;
+        transition: all 1s ease;
+
+        /*same principle with button:hover*/
+        &:hover
+        {
+            background: rgb(22, 59, 71);
+        }
+    }
+}

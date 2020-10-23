@@ -1,0 +1,16 @@
+@mixin flex($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+*
+{
+    margin: 0;
+    padding: 0;
+
+    /*this will automatically create different webkit versions
+    of this to grant better browser compatibility*/
+    box-sizing: border-box;
+}

@@ -1,0 +1,117 @@
+/*what is SASS? 
+So basically all what SASS does is, it lets u write
+normal css code PLUS more and it automatically 
+converts everything u write in here into a normal
+style.css file, which u then as always link to ur
+html file. You can create variables in here, which 
+then auto converts into normal values in the css files
+and it even adds additional webkits for certain propperties
+to ensure higher compability to different webbrowsers*/
+/*actually it even copies all these comments lel*/
+/*@import
+check the _intro.scss file, all the css rules made there,
+will be imported in here, which then gets copied over
+to the style.css file*/
+* {
+  margin: 0;
+  padding: 0;
+  /*this will automatically create different webkit versions
+    of this to grant better browser compatibility*/
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*Now this seperated file can be imported in any other
+scss file, so we can split up different style rules
+for different sections or like global styles into seperate
+files, instead of all in one single style.css file.
+
+Also mind that the convention of naming external files
+start with an _filename.scss (check the name of this file
+*/
+/*nesting*/
+.introduction {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*this is the same as if we would make a selector
+    of .section h2{} outside of this scope, in normal CSS*/
+}
+
+.introduction h2 {
+  font-size: 4rem;
+}
+
+.introduction .box {
+  color: coral;
+}
+
+.introduction button {
+  color: black;
+  background: #ee6565;
+  border: none;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  /*same principle with button:hover*/
+}
+
+.introduction button:hover {
+  background: #163b47;
+}
+
+footer {
+  min-height: 10vh;
+}
+
+footer h4 {
+  font-size: 2rem;
+}
+
+/*@mixins
+basically it works something like a function,
+where u can use these codes multiple times in different
+locations (check the _intro.scss file)*/
+/*had to move this mixin to the _global.scss file
+because since the import of intro happened before, 
+it wont recognize this mixin, but it will get the one
+from global, because the cascading still matters in sass*/
+/*
+YOU CAN EVEN USE PARAMETERS!!!!!
+@mixin flex($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+*/
+/*$variable
+this is how u decale a variable in SASS, with $ */
+body {
+  /*this will also use different webkits (really cool!)*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /*in the css file it wont use that variable, it will
+    just paste the value of this variable instead*/
+  color: #32b0e2;
+}
+
+/*check the nestings featrue in the _intro.scss file*/
+/*# sourceMappingURL=style.css.map */

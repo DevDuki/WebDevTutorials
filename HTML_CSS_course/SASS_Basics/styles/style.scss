@@ -1,0 +1,60 @@
+/*what is SASS? 
+So basically all what SASS does is, it lets u write
+normal css code PLUS more and it automatically 
+converts everything u write in here into a normal
+style.css file, which u then as always link to ur
+html file. You can create variables in here, which 
+then auto converts into normal values in the css files
+and it even adds additional webkits for certain propperties
+to ensure higher compability to different webbrowsers*/
+
+/*actually it even copies all these comments lel*/
+
+
+/*@import
+check the _intro.scss file, all the css rules made there,
+will be imported in here, which then gets copied over
+to the style.css file*/
+@import "./global";
+@import "./intro";
+@import "./footer";
+
+
+/*@mixins
+basically it works something like a function,
+where u can use these codes multiple times in different
+locations (check the _intro.scss file)*/
+/*had to move this mixin to the _global.scss file
+because since the import of intro happened before, 
+it wont recognize this mixin, but it will get the one
+from global, because the cascading still matters in sass*/
+/*
+YOU CAN EVEN USE PARAMETERS!!!!!
+@mixin flex($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+*/
+
+
+/*$variable
+this is how u decale a variable in SASS, with $ */
+$primary-color: #32b0e2;
+$big-font: 4rem;
+
+body
+{
+    /*this will also use different webkits (really cool!)*/
+    display: flex;
+    flex-direction: column;
+
+    /*in the css file it wont use that variable, it will
+    just paste the value of this variable instead*/
+    color: $primary-color;
+}
+
+/*check the nestings featrue in the _intro.scss file*/
+
+
