@@ -1,5 +1,5 @@
-/*what is SASS? 
-So basically all what SASS does is, it lets u write
+/*what is SCSS? 
+So basically all what SCSS does is, it lets u write
 normal css code PLUS more and it automatically 
 converts everything u write in here into a normal
 style.css file, which u then as always link to ur
@@ -27,7 +27,7 @@ locations (check the _intro.scss file)*/
 /*had to move this mixin to the _global.scss file
 because since the import of intro happened before, 
 it wont recognize this mixin, but it will get the one
-from global, because the cascading still matters in sass*/
+from global, because the cascading still matters in scss*/
 /*
 YOU CAN EVEN USE PARAMETERS!!!!!
 @mixin flex($direction){
@@ -40,7 +40,7 @@ YOU CAN EVEN USE PARAMETERS!!!!!
 
 
 /*$variable
-this is how u decale a variable in SASS, with $ */
+this is how u decale a variable in ScSS, with $ */
 $primary-color: #32b0e2;
 $big-font: 4rem;
 
