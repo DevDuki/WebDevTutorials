@@ -110,7 +110,7 @@ body {
           flex-direction: column;
   /*in the css file it wont use that variable, it will
     just paste the value of this variable instead*/
-  color: #32b0e2;
+  color: #20ebae;
 }
 
 /*check the nestings featrue in the _intro.scss file*/

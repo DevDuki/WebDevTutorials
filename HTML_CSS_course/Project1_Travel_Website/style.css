@@ -174,7 +174,7 @@ nav ul{
     text-decoration-thickness: 0.5rem;
     /*or if u wanna add a background color to the text*/
     background: linear-gradient(#3469af, #e95241); /*this will add the color over the whole content's box, so we gotta cut it */
-    background-clip: text; 
+    -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; /*and this is what not all browsers support yet*/
 }
 
