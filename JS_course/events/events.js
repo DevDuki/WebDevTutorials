@@ -33,7 +33,7 @@ button.addEventListener("click", () => {
 });
 
 function deleteItem(event){
-    event.stopPropagation();  //Prevent event bubbling with the parent ul element
+    event.stopPropagation();  //Prevent event bubbling with the parent ul element (in css pointer-events: none; can also be used for non parented elements)
     event.target.remove();
 }
 
