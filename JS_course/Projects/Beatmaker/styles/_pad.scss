@@ -1,0 +1,44 @@
+.kick, .snare, .hihat{
+    display: flex;
+
+    .pad{
+        width: 5rem;
+        height: 5rem;
+        margin: 1rem 0.5rem;
+        cursor: pointer;
+        transition: all 0.5s ease;
+    }
+}
+
+.kick-pad{
+    background: rgb(153, 182, 245);
+
+    &.active{
+        background: rgb(32, 75, 168);
+    }
+}
+
+.snare-pad{
+    background: rgb(209, 255, 135);
+
+    &.active{
+        background: rgb(65, 160, 28);
+    }
+}
+
+.hihat-pad{
+    background: rgb(233, 151, 151);
+
+    &.active{
+        background: rgb(179, 39, 39);
+    }
+}
+
+@keyframes playTrack{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
