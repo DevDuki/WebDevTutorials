@@ -228,21 +228,25 @@ function closeAdjustmentPanel(index){
 
 
 //Local storage section
-const saveBtn       = document.querySelector(".save");
-const submitSave    = document.querySelector(".submit-save");
-const closeSave     = document.querySelector(".close-save");
-const saveContainer = document.querySelector(".save-container");
-const saveInput     = document.querySelector(".save-container input");
+const saveBtn          = document.querySelector(".save");
+const submitSave       = document.querySelector(".submit-save");
+const closeSave        = document.querySelector(".close-save");
+const saveContainer    = document.querySelector(".save-container");
+const saveInput        = document.querySelector(".save-container input");
+const libraryContainer = document.querySelector(".library-container");
+const libraryBtn       = document.querySelector(".library");
+const closeLibraryBtn  = document.querySelector(".close-library");
 
 let savedPalettes = [];
 
 
 //Event listeners
 saveBtn.addEventListener("click", openPalette);
-
 closeSave.addEventListener("click", closePalette);
-
 submitSave.addEventListener("click", savePalette);
+
+libraryBtn.addEventListener("click", openLibrary);
+closeLibraryBtn.addEventListener("click", closeLibrary);
 
 
 //Functions
@@ -266,12 +270,76 @@ function savePalette(){
         colors.push(hex.innerText);
     });
 
-    let paletteNr = savedPalettes.length;
+    let paletteNr
+    const paletteObjects = JSON.parse(localStorage.getItem("palettes"));
+    if(paletteObjects){
+        paletteNr = paletteObjects.length;
+    } else {
+        paletteNr = savedPalettes.length;
+    }
+
     const paletteObj = {name: name, colors: colors, nr: paletteNr} //short version would be {name, colors, nr: paletteNr}
     savedPalettes.push(paletteObj);
 
     saveToLocal(paletteObj);
     saveInput.value = "";
+    
+    //Generate and append a palette to the library
+    const palette = document.createElement("div");
+    palette.classList.add("custom-palette");
+
+    const title = document.createElement("h4");
+    title.innerText = paletteObj.name;
+
+    const preview = document.createElement("div");
+    preview.classList.add("small-preview");
+
+    paletteObj.colors.forEach(color => {
+        const smallDiv = document.createElement("div");
+        smallDiv.style.backgroundColor = color;
+        preview.appendChild(smallDiv);
+    });
+
+    const paletteBtn = document.createElement("button");
+    paletteBtn.classList.add("pick-palette-btn");
+    paletteBtn.classList.add(paletteObj.nr);
+    paletteBtn.innerText = "Select";
+
+    //Attach event to the select btn
+    paletteBtn.addEventListener("click", e => {
+        closeLibrary();
+        const paletteIndex = e.target.classList[1];
+        initialColors = [];
+        savedPalettes[paletteIndex].colors.forEach((color, index) => {
+            initialColors.push(color);
+            colorDivs[index].style.backgroundColor = color;
+            const text = colorDivs[index].children[0];
+            checkTextContrast(color, text);
+            updateTextUI(index);
+            const c = chroma(color);
+            const hue = sliderContainers[index].querySelectorAll("input[type='range']")[0];
+            const brightness = sliderContainers[index].querySelectorAll("input[type='range']")[1];
+            const saturation = sliderContainers[index].querySelectorAll("input[type='range']")[2];
+            coloriseSliders(c, hue, brightness, saturation);
+        });
+        resetSliders();
+    });
+
+    palette.append(title, preview, paletteBtn);
+
+    libraryContainer.children[0].appendChild(palette);
+}
+
+function openLibrary(){
+    const popup = libraryContainer.children[0];
+    libraryContainer.classList.add("active");
+    popup.classList.add("active");
+}
+
+function closeLibrary(){
+    const popup = libraryContainer.children[0];
+    libraryContainer.classList.remove("active");
+    popup.classList.remove("active");
 }
 
 function saveToLocal(paletteObj){
@@ -285,5 +353,64 @@ function saveToLocal(paletteObj){
     localStorage.setItem("palettes", JSON.stringify(localPalettes));
 }
 
+function getFromLocal(){
+    if(localStorage.getItem("palettes") === null){
+        localPalettes = [];
+    } else {
+        const paletteObjects = JSON.parse(localStorage.getItem("palettes"));
+        
+        localPalettes = [...paletteObjects];
 
+        paletteObjects.forEach(paletteObj => {
+            const palette = document.createElement("div");
+            palette.classList.add("custom-palette");
+
+            const title = document.createElement("h4");
+            title.innerText = paletteObj.name;
+
+            const preview = document.createElement("div");
+            preview.classList.add("small-preview");
+
+            paletteObj.colors.forEach(color => {
+                const smallDiv = document.createElement("div");
+                smallDiv.style.backgroundColor = color;
+                preview.appendChild(smallDiv);
+            });
+        
+            const paletteBtn = document.createElement("button");
+            paletteBtn.classList.add("pick-palette-btn");
+            paletteBtn.classList.add(paletteObj.nr);
+            paletteBtn.innerText = "Select";
+        
+            //Attach event to the select btn
+            paletteBtn.addEventListener("click", e => {
+                closeLibrary();
+                const paletteIndex = e.target.classList[1];
+                initialColors = [];
+                paletteObjects[paletteIndex].colors.forEach((color, index) => {
+                    initialColors.push(color);
+                    colorDivs[index].style.backgroundColor = color;
+                    const text = colorDivs[index].children[0];
+                    checkTextContrast(color, text);
+                    updateTextUI(index);
+                    const c = chroma(color);
+                    const hue = sliderContainers[index].querySelectorAll("input[type='range']")[0];
+                    const brightness = sliderContainers[index].querySelectorAll("input[type='range']")[1];
+                    const saturation = sliderContainers[index].querySelectorAll("input[type='range']")[2];
+                    coloriseSliders(c, hue, brightness, saturation);
+                });
+                resetSliders();
+                savedPalettes.push(paletteObj);
+            });
+        
+            palette.append(title, preview, paletteBtn);
+        
+            libraryContainer.children[0].appendChild(palette);
+        });
+    }
+}
+
+
+
+getFromLocal();
 initialiseView();
